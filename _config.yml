@@ -1,0 +1,13 @@
+# Site settings
+title: joeriley.io
+email: me@josephriley.design
+description: > 
+  Joseph Riley | Front End Developer in the Greater Philadelphia area.
+baseurl: "" 
+url: "http://josephriley.design"
+permalink: "/:title"
+twitter_username: roejiley
+github_username:  roejiley
+
+# Build settings
+markdown: kramdown

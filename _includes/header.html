@@ -1,0 +1,33 @@
+<section class="navigation">
+    <div class="nav-container">
+        <div class="brand"> <a href="/">joeriley.io</a> </div>
+        <nav>
+            <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
+            <ul class="nav-list">
+                <li><a href="/">Home</a></li>
+                <li><a href="{{site.baseurl}}/about/">About</a></li>
+                <!--                    <li><a href="{{site.baseurl}}/portfolio/">Portfolio</a></li>-->
+                <li><a href="{{site.baseurl}}/blog/">Blog</a></li>
+                <li><a href="{{site.baseurl}}/contact/">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</section>
+<script>
+    (function ($) { // Begin jQuery
+        $(function () { // DOM ready
+            // Clicking away from dropdown will remove the dropdown class
+            $('html').click(function () {
+                $('.nav-dropdown').hide();
+            });
+            // Toggle open and close nav styles on click
+            $('#nav-toggle').click(function () {
+                $('nav ul').slideToggle();
+            });
+            // Hamburger to X toggle
+            $('#nav-toggle').on('click', function () {
+                this.classList.toggle('active');
+            });
+        }); // end DOM ready
+    })(jQuery); // end jQuery
+</script>

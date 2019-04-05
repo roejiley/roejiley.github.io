@@ -1,0 +1,26 @@
+---
+---
+<html lang="en">
+    {% include head.html %}
+<body>
+   {% include header.html %}
+    <section class="vh-container">
+        <section class="home-hero">
+            <h2>Hi, I'm Joe.</h2>
+        </section>
+        <section class="two">
+            <p class="desc">I'm a self-taught front end developer in the Greater Philadelphia area that focuses on building quality websites at affordable prices. Want to work together on a project? <a class=desc-link href="/contact/">Contact me</a>!</p>
+        </section>
+    </section>
+    <div class="hero">
+        <h2>Recent Posts</h2>
+    </div>
+    <section>
+        <ul class="container"> {% for post in site.posts limit:3 %}
+            <a class="col tile" href="{{ post.url }}" title="{{ post.title }}"style="background-image: url('{{ post.image }}'); background-size: cover;">
+                <li>
+                </li>
+            </a> {% endfor %} </ul>
+    </section> {% include footer.html %} </body>
+
+</html>

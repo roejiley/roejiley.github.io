@@ -1,0 +1,570 @@
+/* table of contents
+0.default
+1.header
+2.footer
+3.index
+4.about
+5.portfolio
+6.blog
+7.contact
+8.post */
+
+
+/* default styling */
+
+main,
+article {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
+/******|        |******/
+/******| header |******/
+/******|        |******/
+
+// Outer navigation wrapper
+.navigation {
+    height: 75px;
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+// Logo and branding
+.brand {
+    position: absolute;
+    float: left;
+    line-height: 75px;
+    font-size: 2.3em;
+    margin-left: 40px;
+    font-family: $raleway;
+    a,
+    a:visited {
+        color: $whitetext;
+        text-decoration: none;
+    }
+}
+
+// Container with no padding for navbar
+.nav-container {
+    width: 90%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+// Navigation 
+nav {
+    float: right;
+    font-family: $raleway;
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        background-color: rgba(0, 0, 0, 0.7);
+        width: 100%;
+        li {
+            float: left;
+            position: relative;
+            a,
+            a:visited {
+                display: block;
+                margin-right: 40px;
+                font-size: 1em;
+                line-height: 75px;
+                color: $whitetext;
+                text-transform: uppercase;
+                text-decoration: none;
+                &:hover {
+                    color: #3498db;
+                    transition: 0.3s ease;
+                }
+                &:active {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+// Dropdown list binds to JS toggle event
+.nav-dropdown {
+    position: absolute;
+    display: none;
+    z-index: 999;
+}
+
+
+/* Mobile navigation */
+
+// Binds to JS Toggle
+.nav-mobile {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    height: 75px;
+    width: 75px;
+}
+
+@media only screen and (max-width: 768px) {
+    .nav-container {
+        width: 100%;
+    }
+    // Hamburger nav visible on mobile only
+    .nav-mobile {
+        display: block;
+    }
+    nav {
+        width: 100%;
+        margin: 15px 0;
+        padding: 60px 0 15px 0;
+        ul {
+            display: none;
+            li {
+                float: none;
+                text-align: center;
+                z-index: 999;
+                a,
+                a:visited {
+                    padding: 15px;
+                    margin-right: 0;
+                    z-index: 999;
+                    line-height: 40px;
+                    background-color: $whitetext;
+                    color: $regulartext;
+                    border-top: 1px solid $darkgrey;
+                    font-family: $raleway;
+                }
+                ul li a {
+                    padding-left: 30px;
+                }
+            }
+        }
+    }
+    .nav-dropdown {
+        position: static;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .nav-list {
+        display: block !important;
+    }
+}
+
+#nav-toggle {
+    position: absolute;
+    left: 18px;
+    top: 22px;
+    cursor: pointer;
+    padding: 10px 35px 16px 0px;
+    z-index: 5;
+    span,
+    span:before,
+    span:after {
+        cursor: pointer;
+        border-radius: 2px;
+        height: 4px;
+        width: 40px;
+        background: $whitetext;
+        position: absolute;
+        display: block;
+        content: '';
+        transition: all 300ms ease-in-out;
+    }
+    span:before {
+        top: -10px;
+    }
+    span:after {
+        bottom: -10px;
+    }
+    &.active span {
+        background-color: transparent;
+        &:before,
+        &:after {
+            top: 0;
+        }
+        &:before {
+            transform: rotate(45deg);
+        }
+        &:after {
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+.spacer {
+    margin: 0;
+    padding: 0;
+    height: 75px;
+    width: 100%;
+}
+
+
+/******|        |******/
+/******| footer |******/
+/******|        |******/
+
+footer {
+    section.footer {
+        width: 100%;
+        background-color: $darkgrey;
+        text-align: center;
+        h3 {
+            margin: 0;
+            padding: 55px;
+            font-family: $open;
+            color: $whitetext;
+            font-weight: 200;
+        }
+    }
+    div.btn-container {
+        padding-bottom: 60px;
+    }
+    div.button {
+        color: $darkgrey;
+        border: 1px solid $whitetext;
+        width: 300px;
+        margin: 0 auto;
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        &:hover {
+            border-color: $link-color;
+            background-color: $link-color;
+            transition: 0.2s;
+        }
+        h1 {
+            padding: 10px 30px;
+            color: $whitetext;
+            font-weight: 200;
+            font-size: 1.3em;
+            font-family: $open;
+        }
+    }
+}
+
+div.closer {
+    background-color: #141414;
+    text-align: center;
+    p {
+        color: $darkgrey;
+        padding: 15px;
+        font-size: 0.9em;
+        margin: 0;
+        a {
+            color: $link-color;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+
+/******|       |******/
+/******| index |******/
+/******|       |******/
+
+//intro section
+section.home-hero {
+    width: 100%;
+    background-image: -webkit-linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/lovepark.jpg');
+    background-position: bottom right;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    font-family: $open;
+    text-align: center;
+    h2 {
+        font-size: 4.5em;
+        font-weight: 200;
+        color: $whitetext;
+        margin: 0;
+        padding: 20px 30px;
+        font-family: $raleway;
+    }
+}
+
+// portfolio example section 
+section.two {
+    width: 90%;
+    max-width: 920px;
+    font-weight: 200;
+    margin: 0 auto;
+    text-align: center;
+    color: $regulartext;
+    ;
+    .desc {
+        line-height: 1.5em;
+        font-size: 1.4em;
+        letter-spacing: 0.5px;
+        margin: 70px auto;
+        .desc-link {
+            color: $link-color;
+            text-decoration: none;
+            &:hover {
+                color: $link-hover-color;
+                transition: 0.1s ease;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    section.two .desc {
+        font-size: 1.2em;
+        line-height: 1.25em;
+    }
+}
+
+.hero {
+    background-color: $link-color;
+    background-attachment: fixed;
+    background-position: 50% 75%;
+    background-size: cover;
+    margin: 0;
+    text-align: center;
+    h2 {
+        font-weight: 200;
+        color: $whitetext;
+        padding: 75px;
+        margin: 0;
+    }
+}
+
+// Sets Default Tile Width
+.tile {
+    position: relative;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: $regulartext;
+    border: 1px solid $whitetext;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.tile:after {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    content: attr(title);
+    font-weight: 200;
+    color: $whitetext;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tile:hover:after {
+    opacity: 1;
+}
+
+// Maintains Ratio
+.tile:before {
+    content: "";
+    display: block;
+    padding-top: 60%;
+}
+
+.post-title {
+    font-size: 1.5em;
+    color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+}
+
+
+/******|       |******/
+/******| about |******/
+/******|       |******/
+
+header.post-header-about {
+    height: 75vh;
+    background-color: $regulartext;
+    background-attachment: fixed;
+    background-image: -webkit-linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/assets/images/rabbit.jpg');
+    background-size: cover;
+    background-position: bottom right;
+}
+
+
+/******|           |******/
+/******| portfolio |******/
+/******|           |******/
+
+
+/******|      |******/
+/******| blog |******/
+/******|      |******/
+
+section.blog-hero {
+    width: 100%;
+    background-image: -webkit-linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/coding.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 50vh;
+    font-family: $open;
+}
+
+section.blog-page {
+    width: 80%;
+    max-width: 980px;
+    text-align: center;
+    margin: 0 auto;
+    ul {
+        list-style-type: none;
+        li {
+            margin-top: 60px;
+            &:last-child {
+                margin-bottom: 65px;
+            }
+            a,
+            a:visited {
+                text-decoration: none;
+                font-weight: 200;
+                color: $regulartext;
+                font-size: 1.5em;
+                &:hover {
+                    color: $link-color;
+                    transition: 0.2s;
+                }
+            }
+        }
+    }
+}
+
+.blog-posts-date {
+    font-size: 0.7em;
+    color: $lightgrey;
+}
+
+
+/******|         |******/
+/******| contact |******/
+/******|         |******/
+
+section.contact {
+    margin: 0 auto;
+    text-align: center;
+    h1.pagetitle {
+        color: $regulartext;
+    }
+    form {
+        margin: 0 auto;
+        input,
+        textarea {
+            width: 70%;
+            max-width: 640px;
+            font-size: 1.3em;
+            display: block;
+            margin: 1em auto;
+            font-family: $open;
+            background-color: inherit;
+            line-height: 1.3em;
+            padding: 5px 10px;
+            border-radius: 0;
+            border-color: #ccc;
+            border-width: 0 0 2px 0;
+            border-style: none none solid none;
+            box-shadow: none;
+            resize: none;
+        }
+    }
+}
+    button.contact-btn {
+        color: $darkgrey;
+        background-color: $whitetext;
+        border-color: $darkgrey;
+        padding: 6px 40px;
+        font-weight: 200;
+        border-radius: 4px;
+        font-family: $open;
+        font-size: 1.7em;
+        margin: 1.4em;
+        border-style: solid;
+        cursor: pointer;
+        &:hover {
+            color: $link-hover-color;
+            border-color: $link-hover-color;
+            transition: 0.2s ease;
+        }
+    }
+
+
+/******|      |******/
+/******| post |******/
+/******|      |******/
+
+.post-header {
+    width: 100%;
+    height: 45vh;
+    display: flex;
+    position: relative;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: bottom;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    background-color: $link-color;
+}
+
+.post-title-container {
+    padding-top: 75px;
+    height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $important;
+}
+
+.post-title {
+    font-size: 3.6em;
+    border: 1px solid $whitetext;
+    padding: 6px 18px;
+    font-weight: 200;
+    color: $whitetext;
+    margin: 0;
+    margin: 30px auto;
+    font-family: $raleway;
+    text-align: center;
+    @media screen and (max-width: 800px) {
+        font-size: 3em;
+    }
+}
+
+div.post-content {
+    margin-top: 50px;
+    width: 85%;
+    max-width: 800px;
+    text-align: left;
+    margin: 60px auto;
+    line-height: 1.7em;
+    font-size: 1.1em;
+    p {
+        margin: 1.5em;
+    }
+}
+
+
+/******|              |******/
+/******| contact form |******/
+/******|              |******/

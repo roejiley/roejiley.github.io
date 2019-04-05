@@ -1,0 +1,13 @@
+---
+layout: default
+title: Blog
+---
+ <section class="blog-hero"></section>
+  <section class="blog-page">
+       <ul>
+           <!--  site.posts is [a, b, c]  -->
+           {% for post in site.posts %}
+           <li><a class="blog-posts" href="{{ post.url }}">{{ post.title }} <br> <span class="blog-posts-date">{{ post.date | date_to_string }}</span> </a></li>
+           {% endfor %}
+       </ul>
+    </section>
